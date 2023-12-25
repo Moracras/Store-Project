@@ -12,13 +12,17 @@ const AuthProvider = ({ children }) => {
     setUser(info);
     navigate("/dashboard");
   };
-  const logout = () =>{
+
+  const logout = () => {
     setUser(null)
+    // setUser({})
   }
 
   useEffect(()=>{
     sessionStorage.setItem("user",JSON.stringify(user))
-  },[user])///! componentdidupdate
+  },[user])//!componentDidUpdate
+
+
 
   return (
     <AuthContext.Provider value={{ user, login,logout }}>
